@@ -1,19 +1,34 @@
-<div>
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  
-    <label>
-      First Name:
-      <input type="text" formControlName="firstName">
-    </label>
-  
-    <label>
-      Last Name:
-      <input type="text" formControlName="lastName">
-    </label>
-  
-    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-  
-  </form>
-</div>
+<div class="container">
+    
+    <h1>Form</h1>
+              
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+              
+        <div class="form-group">
+            <ion-item>
+                <ion-label position="floating" >First Name:</ion-label>
+                <ion-input formControlName="firstName" inputmode="text" clear-input="true"></ion-input>
+            </ion-item>
+        </div>
+                
+         <div class="form-group">
+            <ion-item>
+                <ion-label position="floating" >Last Name:</ion-label>
+                <ion-input formControlName="lastName" inputmode="text" clear-input="true"></ion-input>
+            </ion-item>
+        </div>
+              
+        <div class="form-group">
+            <ion-item>
+                <ion-label position="floating" >Email:</ion-label>
+                <ion-input formControlName="email" inputmode="Email" required="true" clear-input="true"></ion-input>
+            </ion-item>
+        </div>
+                
+        <ion-button type="submit" shape="round" color="primary" [disabled]="!profileForm.valid">Submit</ion-button>
+                
+    </form>
+     
+    <p> Form Status: {{ profileForm.status }} </p>
 
-
+ </div>

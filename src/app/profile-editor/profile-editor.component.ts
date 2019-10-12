@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
@@ -13,9 +14,19 @@ export class ProfileEditorComponent implements OnInit {
   ngOnInit() {}
 
   profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+    firstName: new FormControl('',[
+      Validators.required,
+      Validators.minLength(4)
+    ]),
+    lastName: new FormControl('',[
+      Validators.required,
+      Validators.minLength(4)
+    ]),
+    email: new FormControl('',[
+      Validators.email
+    ]),
   });
+  
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
