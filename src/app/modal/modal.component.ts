@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
@@ -8,8 +8,15 @@ import { FormControl } from '@angular/forms';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(public modalController: ModalController) {}
 
-  ngOnInit() {}
-  name = new FormControl('');
+  dismiss() {
+      // using the injected ModalController this page
+      // can "dismiss" itself and optionally pass back data
+      this.modalController.dismiss({
+        'dismissed': true
+      });
+    }
+
+    ngOnInit() {}
 }
